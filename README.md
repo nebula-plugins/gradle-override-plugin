@@ -35,11 +35,11 @@ code this becomes very tedious. Furthermore, the build script user has to know t
 To include, add the following to your build.gradle
 
     buildscript {
-      repositories { jcenter() }
+        repositories { jcenter() }
 
-      dependencies {
-        classpath 'com.netflix.nebula:gradle-override-plugin:1.12.+'
-      }
+        dependencies {
+            classpath 'com.netflix.nebula:gradle-override-plugin:1.12.+'
+        }
     }
 
     apply plugin: 'nebula-override'
