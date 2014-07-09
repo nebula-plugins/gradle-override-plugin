@@ -80,4 +80,4 @@ the build script user can override the default value `hello` of myProp by provid
 
 * Introduce a plugin-specific argument that doesn't require a "prefix" similar to project properties e.g.
 `-Nexample.myProp=newValue`. This will require a change in Gradle core as the functionality to add new command line handlers
-is not exposed.
+(see `AbstractPropertiesCommandLineConverter`) is not exposed.
