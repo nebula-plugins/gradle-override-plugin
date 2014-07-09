@@ -1,0 +1,18 @@
+buildscript {
+    repositories { jcenter() }
+    dependencies { classpath 'com.netflix.nebula:nebula-plugin-plugin:1.12.+' }
+}
+
+description 'Override arbitrary properties in a Gradle build'
+apply plugin: 'nebula-plugin'
+
+contacts {
+    'benjamin.muschko@gmail.com' {
+        moniker 'Benjamin Muschko'
+        github 'bmuschko'
+    }
+}
+
+dependencies {
+    testCompile 'com.netflix.nebula:nebula-test:1.12.+'
+}
