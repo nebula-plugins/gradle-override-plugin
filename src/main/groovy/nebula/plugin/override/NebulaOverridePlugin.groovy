@@ -1,25 +1,27 @@
-/*
- * Copyright 2014 Netflix, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package nebula.plugin.override
 
+import nebula.plugin.override.reader.AggregateOverrideReader
+import nebula.plugin.override.reader.OverrideReader
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
+/**
+ * Plugin for overriding properties in a project from the command line. The main use case for this functionality is to
+ * avoid the introduction of "magic" system/project properties for providing user-driven property values as part of build
+ * logic. Property names are provided as String and are looked up by dot notation. If no matching property can be resolved,
+ * the build fails.
+ */
 class NebulaOverridePlugin implements Plugin<Project> {
-    @Override
     void apply(Project project) {
+        OverrideReader overrideReader = new AggregateOverrideReader()
+        def overrideProperties = overrideReader.parseProperties()
+        
+        project.afterEvaluate {
+            overrideProperties.each { propertyName, overrideValue -> 
+                project.logger.info "Overriding property '$propertyName' with '$overrideValue'."
+                OverrideStrategy dotNotationWalkerOverrideStrategy = new DotNotationWalkerOverrideStrategy()
+                dotNotationWalkerOverrideStrategy.apply(project, propertyName, overrideValue)
+            }
+        }
     }
 }

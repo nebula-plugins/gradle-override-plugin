@@ -5,6 +5,7 @@ buildscript {
 
 description 'Override arbitrary properties in a Gradle build'
 apply plugin: 'nebula-plugin'
+apply plugin: 'idea'
 
 contacts {
     'benjamin.muschko@gmail.com' {
@@ -14,5 +15,7 @@ contacts {
 }
 
 dependencies {
+    compile 'commons-beanutils:commons-beanutils-core:1.8.3'
+    testCompile 'org.apache.commons:commons-lang3:3.3.2'
     testCompile 'com.netflix.nebula:nebula-test:1.12.+'
 }
