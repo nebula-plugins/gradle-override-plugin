@@ -1,6 +1,6 @@
 buildscript {
     repositories { jcenter() }
-    dependencies { classpath 'com.netflix.nebula:nebula-plugin-plugin:1.12.+' }
+    dependencies { classpath 'com.netflix.nebula:nebula-plugin-plugin:2.0.+' }
 }
 
 description 'Override arbitrary properties in a Gradle build'
@@ -17,7 +17,7 @@ contacts {
 dependencies {
     compile 'commons-beanutils:commons-beanutils-core:1.8.3'
     testCompile 'org.apache.commons:commons-lang3:3.3.2'
-    testCompile('com.netflix.nebula:nebula-test:1.12.+') {
+    testCompile('com.netflix.nebula:nebula-test:2.0.+') {
         exclude group: 'org.codehaus.groovy'
     }
 }
