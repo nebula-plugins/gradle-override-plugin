@@ -3,6 +3,8 @@ package nebula.plugin.override
 import nebula.test.IntegrationSpec
 import nebula.test.functional.ExecutionResult
 import org.apache.commons.lang.exception.ExceptionUtils
+import spock.lang.Ignore
+import spock.lang.Issue
 
 class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
     def setup() {
@@ -229,5 +231,32 @@ class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
         System.clearProperty('override.example.myProp')
         System.clearProperty('override.example.nested.otherProp')
         System.clearProperty('override.example.nested.deeper.deep')
+    }
+
+    @Ignore("Broken as of 2.0.0")
+    @Issue("https://github.com/nebula-plugins/gradle-override-plugin/issues/1")
+    def "should allow to override not initialized Boolean property with false value"() {
+        given:
+        buildFile << """
+        class MyExtension {
+            Boolean myBoolean
+        }
+
+        extensions.create('example', MyExtension)
+
+        assert example.myBoolean == null
+
+        task checkOverridenProperties {
+            doLast {
+                assert example.myBoolean == false
+            }
+        }
+        """
+
+        when:
+        ExecutionResult executionResult = runTasksSuccessfully('checkOverridenProperties', '-Doverride.example.myBoolean=false')
+
+        then:
+        executionResult.standardOutput.contains(':checkOverridenProperties')
     }
 }
