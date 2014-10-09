@@ -2,6 +2,7 @@ package nebula.plugin.override
 
 import nebula.plugin.override.converter.ApacheCommonsTypeConverter
 import nebula.plugin.override.converter.TypeConverter
+import org.codehaus.groovy.runtime.NullObject
 import org.gradle.api.Project
 
 class DotNotationWalkerOverrideStrategy implements OverrideStrategy {
@@ -25,6 +26,12 @@ class DotNotationWalkerOverrideStrategy implements OverrideStrategy {
         }
 
         Class clazz = node.getClass()
+
+        // If no value is assigned, determine the property's class via the parent's metaClass
+        if(clazz == NullObject) {
+            clazz = parent.class.metaClass.properties.find { it.name == fieldName }.type
+        }
+
         parent.setProperty(fieldName, typeConverter.convert(overrideValue, clazz))
     }
 
