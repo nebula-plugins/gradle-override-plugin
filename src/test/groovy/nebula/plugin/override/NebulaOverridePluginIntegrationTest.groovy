@@ -1,17 +1,10 @@
 package nebula.plugin.override
 
-import nebula.test.IntegrationSpec
 import nebula.test.functional.ExecutionResult
 import org.apache.commons.lang.exception.ExceptionUtils
-import spock.lang.Ignore
 import spock.lang.Issue
 
-class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
-    def setup() {
-        buildFile << """
-        apply plugin: nebula.plugin.override.NebulaOverridePlugin
-        """
-    }
+class NebulaOverridePluginIntegrationTest extends BaseNebulaOverridePluginIntegrationTest {
 
     def "Fails build if property to be overriden cannot be resolved"() {
         setup:
