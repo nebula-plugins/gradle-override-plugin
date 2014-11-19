@@ -260,5 +260,9 @@ class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
 
         then:
         executionResult.standardOutput.contains(':checkOverridenProperties')
+
+        cleanup: 'Left over from inprocess tests'
+        System.clearProperty('override.example.myProp')
+        System.clearProperty('override.example.myBoolean')
     }
 }
