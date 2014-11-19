@@ -1,14 +1,15 @@
-2.0.1 / 2014-xx-xx
+2.0.1 / 2014-11-19
 ==================
 
 * Issue #1: Unable to override not initialized Boolean property with false value
+* Pull #9: Emit warning if property cannot be foubd.
 
 2.0.0 / 2014-09-19
 ==================
 
 * Upgrade to Gradle 2.0
 
-1.12.1 / 2014-xx-xx
+1.12.1 / 2014-10-01
 ==================
 
 * Issue #1: Unable to override not initialized Boolean property with false value
