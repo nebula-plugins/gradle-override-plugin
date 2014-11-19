@@ -2,8 +2,6 @@ package nebula.plugin.override
 
 import nebula.test.IntegrationSpec
 import nebula.test.functional.ExecutionResult
-import org.apache.commons.lang.exception.ExceptionUtils
-import spock.lang.Ignore
 import spock.lang.Issue
 
 class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
