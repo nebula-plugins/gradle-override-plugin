@@ -1,6 +1,5 @@
 package nebula.plugin.override
 
-import com.sun.org.apache.bcel.internal.classfile.Unknown
 import nebula.plugin.override.reader.AggregateOverrideReader
 import nebula.plugin.override.reader.OverrideReader
 import org.gradle.api.Plugin
