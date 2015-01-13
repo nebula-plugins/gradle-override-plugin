@@ -2,8 +2,6 @@ package nebula.plugin.override
 
 import nebula.test.IntegrationSpec
 import nebula.test.functional.ExecutionResult
-import org.apache.commons.lang.exception.ExceptionUtils
-import spock.lang.Ignore
 import spock.lang.Issue
 
 class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
@@ -13,16 +11,15 @@ class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
         """
     }
 
-    def "Fails build if property to be overriden cannot be resolved"() {
+    def "Warn if property to be overriden cannot be resolved"() {
         setup:
         System.setProperty('override.example.myProp', 'replaced')
 
         when:
-        ExecutionResult executionResult = runTasksWithFailure('tasks')
+        ExecutionResult executionResult = runTasksSuccessfully('tasks')
 
         then:
-        executionResult.failure
-        ExceptionUtils.getRootCause(executionResult.failure).message == "Unknown property with name 'example' on instance of type class org.gradle.api.internal.project.DefaultProject_Decorated (Full property path: 'example.myProp')"
+        executionResult.standardOutput.contains("Unknown property with name 'example' on instance of type class org.gradle.api.internal.project.DefaultProject_Decorated (Full property path: 'example.myProp')")
 
         cleanup:
         System.clearProperty('override.example.myProp')
@@ -261,5 +258,9 @@ class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
 
         then:
         executionResult.standardOutput.contains(':checkOverridenProperties')
+
+        cleanup: 'Left over from inprocess tests'
+        System.clearProperty('override.example.myProp')
+        System.clearProperty('override.example.myBoolean')
     }
 }
