@@ -52,11 +52,11 @@ dependencies {
     compile localGroovy()
     compile 'commons-beanutils:commons-beanutils-core:1.8.3'
     testCompile 'org.apache.commons:commons-lang3:3.3.2'
-    testCompile('com.netflix.nebula:nebula-test:2.0.+') {
+    testCompile('com.netflix.nebula:nebula-test:2.2.+') {
         exclude group: 'org.codehaus.groovy'
     }
 }
 
 task createWrapper(type: Wrapper) {
-    gradleVersion = '2.0'
+    gradleVersion = '2.2.1'
 }
