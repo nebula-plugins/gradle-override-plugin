@@ -49,7 +49,7 @@ dependencies {
 pluginBundle {
     plugins {
         override {
-            id = 'override'
+            id = 'nebula.override'
             displayName = 'Gradle Override plugin'
             description = project.description
             tags = ['nebula', 'override']
