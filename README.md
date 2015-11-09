@@ -37,17 +37,24 @@ code this becomes very tedious. Furthermore, the build script user has to know t
 
 ### Applying the Plugin
 
-To include, add the following to your build.gradle
+
+To apply this plugin if using Gradle 2.1 or newer
+
+    plugins {
+      id 'nebula.override' version '3.0.1'
+    }
+
+If using an older version of Gradle
 
     buildscript {
         repositories { jcenter() }
 
         dependencies {
-            classpath 'com.netflix.nebula:gradle-override-plugin:1.12.+'
+            classpath 'com.netflix.nebula:gradle-override-plugin:3.0.1'
         }
     }
 
-    apply plugin: 'nebula-override'
+    apply plugin: 'nebula.override'
 
 ### Overriding properties with the plugin
 
@@ -67,7 +74,7 @@ Override properties provided through system properties take precedence over the 
 
 Let's consider the following, modified build script code:
 
-    apply plugin: 'nebula-override'
+    apply plugin: 'nebula.override'
 
     class MyExtension {
         String myProp
@@ -86,3 +93,36 @@ the build script user can override the default value `hello` of myProp by provid
 * Introduce a plugin-specific argument that doesn't require a "prefix" similar to project properties e.g.
 `-Nexample.myProp=newValue`. This will require a change in Gradle core as the functionality to add new command line handlers
 (see `AbstractPropertiesCommandLineConverter`) is not exposed.
+
+Gradle Compatibility Tested
+---------------------------
+
+Built with Oracle JDK7
+Tested with Oracle JDK8
+
+| Gradle Version | Works |
+| :------------: | :---: |
+| 2.2.1          | yes   |
+| 2.3            | yes   |
+| 2.4            | yes   |
+| 2.5            | yes   |
+| 2.6            | yes   |
+| 2.7            | yes   |
+| 2.8            | yes   |
+
+LICENSE
+=======
+
+Copyright 2014-2015 Netflix, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+<http://www.apache.org/licenses/LICENSE-2.0>
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
