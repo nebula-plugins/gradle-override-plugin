@@ -41,7 +41,7 @@ code this becomes very tedious. Furthermore, the build script user has to know t
 To apply this plugin if using Gradle 2.1 or newer
 
     plugins {
-      id 'nebula.override' version '3.0.1'
+      id 'nebula.override' version '3.0.2'
     }
 
 If using an older version of Gradle
@@ -50,7 +50,7 @@ If using an older version of Gradle
         repositories { jcenter() }
 
         dependencies {
-            classpath 'com.netflix.nebula:gradle-override-plugin:3.0.1'
+            classpath 'com.netflix.nebula:gradle-override-plugin:3.0.2'
         }
     }
 
