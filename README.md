@@ -1,6 +1,6 @@
 gradle-override-plugin
 ==============
-![Support Status](https://img.shields.io/badge/Nebula-deprecated-red.svg)
+![Support Status](https://img.shields.io/badge/nebula-deprecated-red.svg)
 [![Build Status](https://travis-ci.org/nebula-plugins/gradle-override-plugin.svg?branch=master)](https://travis-ci.org/nebula-plugins/gradle-override-plugin)
 [![Coverage Status](https://coveralls.io/repos/nebula-plugins/gradle-override-plugin/badge.svg?branch=master&service=github)](https://coveralls.io/github/nebula-plugins/gradle-override-plugin?branch=master)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nebula-plugins/gradle-override-plugin?utm_source=badgeutm_medium=badgeutm_campaign=pr-badge)
