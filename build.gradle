@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Netflix, Inc.
+ * Copyright 2014-2018 Netflix, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,8 +16,7 @@
 
 
 plugins {
-    id 'com.gradle.plugin-publish' version '0.9.4'
-    id 'nebula.plugin-plugin' version '4.22.0'
+    id 'nebula.plugin-plugin' version '6.1.1'
 }
 
 description 'Override arbitrary properties in a Gradle build'
