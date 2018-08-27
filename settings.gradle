@@ -1,1 +1,4 @@
 rootProject.name = 'gradle-override-plugin'
+
+enableFeaturePreview('STABLE_PUBLISHING')
+
