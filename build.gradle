@@ -26,6 +26,10 @@ contacts {
         moniker 'Benjamin Muschko'
         github 'bmuschko'
     }
+    'roberto@perezalcolea.info' {
+        moniker 'Roberto Perez Alcolea'
+        github 'rpalcolea'
+    }
 }
 
 dependencies {
