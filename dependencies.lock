@@ -19,8 +19,8 @@
     },
     "integTestCompile": {
         "com.netflix.nebula:nebula-test": {
-            "locked": "6.1.2",
-            "requested": "6.+"
+            "locked": "7.1.7",
+            "requested": "7.+"
         },
         "commons-beanutils:commons-beanutils-core": {
             "locked": "1.8.3",
@@ -33,8 +33,8 @@
     },
     "integTestCompileClasspath": {
         "com.netflix.nebula:nebula-test": {
-            "locked": "6.1.2",
-            "requested": "6.+"
+            "locked": "7.1.7",
+            "requested": "7.+"
         },
         "commons-beanutils:commons-beanutils-core": {
             "locked": "1.8.3",
@@ -47,8 +47,8 @@
     },
     "integTestRuntime": {
         "com.netflix.nebula:nebula-test": {
-            "locked": "6.1.2",
-            "requested": "6.+"
+            "locked": "7.1.7",
+            "requested": "7.+"
         },
         "commons-beanutils:commons-beanutils-core": {
             "locked": "1.8.3",
@@ -61,8 +61,8 @@
     },
     "integTestRuntimeClasspath": {
         "com.netflix.nebula:nebula-test": {
-            "locked": "6.1.2",
-            "requested": "6.+"
+            "locked": "7.1.7",
+            "requested": "7.+"
         },
         "commons-beanutils:commons-beanutils-core": {
             "locked": "1.8.3",
@@ -99,8 +99,8 @@
     },
     "testCompile": {
         "com.netflix.nebula:nebula-test": {
-            "locked": "6.1.2",
-            "requested": "6.+"
+            "locked": "7.1.7",
+            "requested": "7.+"
         },
         "commons-beanutils:commons-beanutils-core": {
             "locked": "1.8.3",
@@ -113,8 +113,8 @@
     },
     "testCompileClasspath": {
         "com.netflix.nebula:nebula-test": {
-            "locked": "6.1.2",
-            "requested": "6.+"
+            "locked": "7.1.7",
+            "requested": "7.+"
         },
         "commons-beanutils:commons-beanutils-core": {
             "locked": "1.8.3",
@@ -127,8 +127,8 @@
     },
     "testRuntime": {
         "com.netflix.nebula:nebula-test": {
-            "locked": "6.1.2",
-            "requested": "6.+"
+            "locked": "7.1.7",
+            "requested": "7.+"
         },
         "commons-beanutils:commons-beanutils-core": {
             "locked": "1.8.3",
@@ -141,8 +141,8 @@
     },
     "testRuntimeClasspath": {
         "com.netflix.nebula:nebula-test": {
-            "locked": "6.1.2",
-            "requested": "6.+"
+            "locked": "7.1.7",
+            "requested": "7.+"
         },
         "commons-beanutils:commons-beanutils-core": {
             "locked": "1.8.3",
