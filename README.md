@@ -48,7 +48,7 @@ To apply this plugin if using Gradle 2.1 or newer
 If using an older version of Gradle
 
     buildscript {
-        repositories { jcenter() }
+        repositories { mavenCentral() }
 
         dependencies {
             classpath 'com.netflix.nebula:gradle-override-plugin:3.0.2'
