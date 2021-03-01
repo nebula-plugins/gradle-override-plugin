@@ -1,11 +1,11 @@
 gradle-override-plugin
 ==============
 ![Support Status](https://img.shields.io/badge/nebula-inactive-red.svg)
-[![Build Status](https://travis-ci.org/nebula-plugins/gradle-override-plugin.svg?branch=master)](https://travis-ci.org/nebula-plugins/gradle-override-plugin)
-[![Coverage Status](https://coveralls.io/repos/nebula-plugins/gradle-override-plugin/badge.svg?branch=master&service=github)](https://coveralls.io/github/nebula-plugins/gradle-override-plugin?branch=master)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nebula-plugins/gradle-override-plugin?utm_source=badgeutm_medium=badgeutm_campaign=pr-badge)
+[![Gradle Plugin Portal](https://img.shields.io/maven-metadata/v/https/plugins.gradle.org/m2/com.netflix.nebula/gradle-override-plugin/maven-metadata.xml.svg?label=gradlePluginPortal)](https://plugins.gradle.org/plugin/nebula.override)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.netflix.nebula/gradle-override-plugin/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.netflix.nebula/gradle-override-plugin)
+![CI](https://github.com/nebula-plugins/gradle-override-plugin/actions/workflows/ci.yml/badge.svg)
+![Publish](https://github.com/nebula-plugins/gradle-override-plugin/actions/workflows/publish.yml/badge.svg)
 [![Apache 2.0](https://img.shields.io/github/license/nebula-plugins/gradle-override-plugin.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-
 
 Plugin for overriding properties in a project from the command line. The main use case for this functionality is to avoid
 the introduction of "magic" system/project properties for providing user-driven property values as part of build logic.
