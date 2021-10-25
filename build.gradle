@@ -16,7 +16,7 @@
 
 
 plugins {
-    id 'nebula.plugin-plugin' version '15.2.1'
+    id 'nebula.plugin-plugin' version '16.0.1'
 }
 
 description 'Override arbitrary properties in a Gradle build'
@@ -29,8 +29,8 @@ contacts {
 }
 
 dependencies {
-    compile 'commons-beanutils:commons-beanutils-core:1.8.3'
-    testCompile 'org.apache.commons:commons-lang3:3.3.2'
+    implementation 'commons-beanutils:commons-beanutils-core:1.8.3'
+    testImplementation 'org.apache.commons:commons-lang3:3.3.2'
 }
 
 pluginBundle {
