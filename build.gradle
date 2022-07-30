@@ -16,7 +16,7 @@
 
 
 plugins {
-    id 'nebula.plugin-plugin' version '16.3.0'
+    id 'nebula.plugin-plugin' version '17.0.0'
 }
 
 description 'Override arbitrary properties in a Gradle build'
@@ -34,12 +34,16 @@ dependencies {
 }
 
 pluginBundle {
+    tags = ['nebula', 'override']
+}
+
+gradlePlugin {
     plugins {
         override {
             id = 'nebula.override'
             displayName = 'Gradle Override plugin'
             description = project.description
-            tags = ['nebula', 'override']
+            implementationClass = 'nebula.plugin.override.NebulaOverridePlugin'
         }
     }
 }
