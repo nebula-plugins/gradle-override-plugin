@@ -1,7 +1,7 @@
 gradle-override-plugin
 ==============
 ![Support Status](https://img.shields.io/badge/nebula-inactive-red.svg)
-[![Gradle Plugin Portal](https://img.shields.io/maven-metadata/v/https/plugins.gradle.org/m2/com.netflix.nebula/gradle-override-plugin/maven-metadata.xml.svg?label=gradlePluginPortal)](https://plugins.gradle.org/plugin/nebula.override)
+[![Gradle Plugin Portal](https://img.shields.io/maven-metadata/v/https/plugins.gradle.org/m2/com.netflix.nebula/gradle-override-plugin/maven-metadata.xml.svg?label=gradlePluginPortal)](https://plugins.gradle.org/plugin/com.netflix.nebula.override)
 [![Maven Central](https://img.shields.io/maven-central/v/com.netflix.nebula/gradle-override-plugin)](https://maven-badges.herokuapp.com/maven-central/com.netflix.nebula/gradle-override-plugin)
 ![Build](https://github.com/nebula-plugins/gradle-override-plugin/actions/workflows/nebula.yml/badge.svg)
 [![Apache 2.0](https://img.shields.io/github/license/nebula-plugins/gradle-override-plugin.svg)](http://www.apache.org/licenses/LICENSE-2.0)
@@ -41,7 +41,7 @@ code this becomes very tedious. Furthermore, the build script user has to know t
 To apply this plugin if using Gradle 2.1 or newer
 
     plugins {
-      id 'nebula.override' version '3.0.2'
+      id 'com.netflix.nebula.override' version '4.0.0'
     }
 
 If using an older version of Gradle
@@ -50,11 +50,11 @@ If using an older version of Gradle
         repositories { mavenCentral() }
 
         dependencies {
-            classpath 'com.netflix.nebula:gradle-override-plugin:3.0.2'
+            classpath 'com.netflix.nebula:gradle-override-plugin:4.0.0'
         }
     }
 
-    apply plugin: 'nebula.override'
+    apply plugin: 'com.netflix.nebula.override'
 
 ### Overriding properties with the plugin
 

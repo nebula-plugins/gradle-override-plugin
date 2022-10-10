@@ -40,7 +40,7 @@ pluginBundle {
 gradlePlugin {
     plugins {
         override {
-            id = 'nebula.override'
+            id = 'com.netflix.nebula.override'
             displayName = 'Gradle Override plugin'
             description = project.description
             implementationClass = 'nebula.plugin.override.NebulaOverridePlugin'
