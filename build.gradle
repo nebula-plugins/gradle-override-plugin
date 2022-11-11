@@ -16,7 +16,7 @@
 
 
 plugins {
-    id 'com.netflix.nebula.plugin-plugin' version '19.0.2'
+    id 'com.netflix.nebula.plugin-plugin' version '20.0.0'
 }
 
 description 'Override arbitrary properties in a Gradle build'
@@ -33,9 +33,6 @@ dependencies {
     testImplementation 'org.apache.commons:commons-lang3:3.3.2'
 }
 
-pluginBundle {
-    tags = ['nebula', 'override']
-}
 
 gradlePlugin {
     plugins {
@@ -44,6 +41,7 @@ gradlePlugin {
             displayName = 'Gradle Override plugin'
             description = project.description
             implementationClass = 'nebula.plugin.override.NebulaOverridePlugin'
+            tags.set(['nebula', 'override'])
         }
     }
 }
