@@ -41,13 +41,13 @@ class DotNotationWalkerOverrideStrategyTest extends ProjectSpec {
         given:
         project.task('jar', type: Jar)
         assert project.tasks.findByName('jar')
-        assert !project.jar.appendix
+        assert !project.jar.archiveAppendix.isPresent()
         
         when:
-        genericOverrideStrategy.apply(project, 'jar.appendix', 'myAppendix')
+        genericOverrideStrategy.apply(project, 'jar.archiveAppendix', 'myAppendix')
         
         then:
-        project.jar.appendix == 'myAppendix'
+        project.jar.archiveAppendix.get() == 'myAppendix'
     }
     
     def "Can override task extra property"() {
