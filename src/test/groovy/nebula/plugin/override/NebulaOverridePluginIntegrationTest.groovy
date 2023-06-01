@@ -154,9 +154,10 @@ class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
         buildFile << """
         apply plugin: 'java'
 
-        sourceCompatibility = '1.6'
-        targetCompatibility = '1.6'
-
+        java {
+            sourceCompatibility = '1.6'
+            targetCompatibility = '1.6'
+        }
         assert !javadoc.maxMemory
 
         task checkOverridenProperties {
@@ -168,7 +169,7 @@ class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
             }
         }
         """
-
+        System.setProperty('ignoreDeprecations', 'true')
         when:
         ExecutionResult executionResult = runTasksSuccessfully('checkOverridenProperties')
 
