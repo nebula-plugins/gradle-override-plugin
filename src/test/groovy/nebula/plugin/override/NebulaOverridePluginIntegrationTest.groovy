@@ -1,13 +1,14 @@
 package nebula.plugin.override
 
-import nebula.test.IntegrationSpec
-import nebula.test.functional.ExecutionResult
+import nebula.test.IntegrationTestKitSpec
 import spock.lang.Issue
 
-class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
+class NebulaOverridePluginIntegrationTest extends IntegrationTestKitSpec {
     def setup() {
         buildFile << """
-        apply plugin: nebula.plugin.override.NebulaOverridePlugin
+        plugins {
+            id 'com.netflix.nebula.override'
+        }       
         """
     }
 
@@ -16,10 +17,10 @@ class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
         System.setProperty('override.example.myProp', 'replaced')
 
         when:
-        ExecutionResult executionResult = runTasksSuccessfully('tasks')
+        def executionResult = runTasks('tasks')
 
         then:
-        executionResult.standardOutput.contains("Unknown property with name 'example' on instance of type class org.gradle.api.internal.project.DefaultProject_Decorated (Full property path: 'example.myProp')")
+        executionResult.output.contains("Unknown property with name 'example' on instance of type class org.gradle.api.internal.project.DefaultProject_Decorated (Full property path: 'example.myProp')")
 
         cleanup:
         System.clearProperty('override.example.myProp')
@@ -50,10 +51,10 @@ class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
         """
 
         when:
-        ExecutionResult executionResult = runTasksSuccessfully('checkOverridenProperties')
+        def executionResult = runTasks('checkOverridenProperties')
 
         then:
-        executionResult.standardOutput.contains(':checkOverridenProperties')
+        executionResult.output.contains(':checkOverridenProperties')
 
         cleanup:
         System.clearProperty('override.myProp')
@@ -86,10 +87,10 @@ class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
         """
 
         when:
-        ExecutionResult executionResult = runTasksSuccessfully('checkOverridenProperties')
+        def executionResult = runTasks('checkOverridenProperties')
 
         then:
-        executionResult.standardOutput.contains(':checkOverridenProperties')
+        executionResult.output.contains(':checkOverridenProperties')
 
         cleanup:
         System.clearProperty('override.myTask.myProp')
@@ -133,10 +134,10 @@ class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
         """
 
         when:
-        ExecutionResult executionResult = runTasksSuccessfully('checkOverridenProperties')
+        def executionResult = runTasks('checkOverridenProperties')
 
         then:
-        executionResult.standardOutput.contains(':checkOverridenProperties')
+        executionResult.output.contains(':checkOverridenProperties')
 
         cleanup:
         System.clearProperty('override.myTask.myProp')
@@ -171,10 +172,10 @@ class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
         """
         System.setProperty('ignoreDeprecations', 'true')
         when:
-        ExecutionResult executionResult = runTasksSuccessfully('checkOverridenProperties')
+        def executionResult = runTasks('checkOverridenProperties')
 
         then:
-        executionResult.standardOutput.contains(':checkOverridenProperties')
+        executionResult.output.contains(':checkOverridenProperties')
 
         cleanup:
         System.clearProperty('override.sourceCompatibility')
@@ -220,10 +221,10 @@ class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
         """
 
         when:
-        ExecutionResult executionResult = runTasksSuccessfully('checkOverridenProperties')
+        def executionResult = runTasks('checkOverridenProperties')
 
         then:
-        executionResult.standardOutput.contains(':checkOverridenProperties')
+        executionResult.output.contains(':checkOverridenProperties')
 
         cleanup:
         System.clearProperty('override.example.myProp')
@@ -254,11 +255,11 @@ class NebulaOverridePluginIntegrationTest extends IntegrationSpec {
         """
 
         when:
-        ExecutionResult executionResult = runTasksSuccessfully('checkOverridenProperties', '-Doverride.example.myProp=test',
+        def executionResult = runTasks('checkOverridenProperties', '-Doverride.example.myProp=test',
                                                                '-Doverride.example.myBoolean=false')
 
         then:
-        executionResult.standardOutput.contains(':checkOverridenProperties')
+        executionResult.output.contains(':checkOverridenProperties')
 
         cleanup: 'Left over from inprocess tests'
         System.clearProperty('override.example.myProp')
